@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f17">
+  <title>インシデント・ゼロアワー | セキュリティ対応RPG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-phase="detect">
+  <div id="app">
+    <header class="hud" id="hud">
+      <div class="phases" aria-label="フェーズ">
+        <span class="pill" data-p="attack">攻撃</span>
+        <span class="pill" data-p="detect">特定</span>
+        <span class="pill" data-p="resolve">解決</span>
+      </div>
+      <div class="stats">
+        <div class="stat trust" title="銀行の信頼（HP）">
+          <span class="lbl">信頼</span>
+          <span class="bar"><i id="trustBar"></i></span>
+          <span class="num" id="trustNum">100</span>
+        </div>
+        <div class="stat leak" id="leakStat" title="流出した口座情報の件数">
+          <span class="lbl">流出</span>
+          <span class="num" id="leakNum">0</span><span class="unit">件</span>
+        </div>
+        <div class="stat score"><span class="lbl">SCORE</span><span class="num" id="scoreNum">0</span></div>
+        <button class="codex-btn" id="codexBtn" type="button">図鑑 <span id="codexCount">0/8</span></button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <section class="viewport" id="viewport" aria-live="polite">
+        <div class="vp-top">
+          <span class="place" id="place"></span>
+          <span class="clock" id="clock"></span>
+        </div>
+        <div class="term" id="term"></div>
+        <div class="stage-name" id="stageName"></div>
+      </section>
+      <section class="panel" id="panel"></section>
+    </main>
+
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+    <div class="overlay hidden" id="overlay"></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
